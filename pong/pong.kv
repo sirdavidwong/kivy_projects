@@ -1,6 +1,15 @@
 #:kivy 1.5.1
 
-<PongGame>:    
+<PongBall>:
+    size: 50, 50
+    canvas:
+        Ellipse:
+            pos: self.pos
+            size: self.size
+
+<PongGame>:
+    ball: pong_ball
+    
     canvas:
         Rectangle:
             pos: self.center_x - 5, 0
@@ -23,3 +32,7 @@
         center_x: root.width * 1/10
         top: root.top - root.height * 8 / 10
         text: "by David"
+
+    PongBall:
+        id: pong_ball
+        center: self.parent.center
